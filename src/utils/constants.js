@@ -117,3 +117,9 @@ export const LANGUAGE = [
 ]
 
 export const OPTIONS = "Options";
+
+export const CAST = "Show Cast";
+
+export const CAST_HEADER = "Cast";
+
+export const OUTOFF = "/10";

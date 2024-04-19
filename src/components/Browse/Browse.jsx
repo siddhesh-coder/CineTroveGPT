@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BrowseHeader from "./BrowseHeader";
 import useFetch from "../../hooks/useFetch";
 import { NOW_PLAYING } from "../../utils/constants";
@@ -10,7 +10,10 @@ import SecondaryContainer from "./SecondaryContainer";
 const Browse = () => {
   const { shareData } = useFetch(NOW_PLAYING);
   const dispatch = useDispatch();
-  dispatch(addNowPlayingMovies(shareData));
+
+  useEffect(() => {
+    dispatch(addNowPlayingMovies(shareData));
+  }, [dispatch, shareData]);
   
   return (
     <div className="w-screen h-screen overflow-x-hidden bg-black">

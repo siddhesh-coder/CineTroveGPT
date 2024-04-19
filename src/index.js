@@ -8,9 +8,9 @@ import EntryPage from "./components/Home/EntryPage";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import appStore from "./utils/Store/appStore";
-import Details from "./components/Browse/Details";
 import { ThemeProvider } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
+import { ConfigProvider } from "react-avatar";
 
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const Browse = lazy(() => import("./components/Browse/Browse"));
@@ -39,12 +39,6 @@ const router = createBrowserRouter([
             <Browse />
           </Suspense>
         ),
-        children: [
-          {
-            path: ":movieId",
-            element: <Details />,
-          },
-        ],
       },
     ],
   },
@@ -52,13 +46,15 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <Provider store={appStore}>
+  // <React.StrictMode>
+  <ThemeProvider>
+    <Provider store={appStore}>
+      <ConfigProvider>
         <RouterProvider router={router} />
-      </Provider>
-      <Toaster position="top-right" reverseOrder={false} />
-    </ThemeProvider>
-  </React.StrictMode>
+      </ConfigProvider>
+    </Provider>
+    <Toaster position="top-right" reverseOrder={false} />
+  </ThemeProvider>
+  // </React.StrictMode>
 );
 reportWebVitals();
