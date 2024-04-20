@@ -14,6 +14,9 @@ export const options = {
 export const NOW_PLAYING =
   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
 
+export const TRENDING =
+  "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+
 export const POPULAR =
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 
@@ -92,29 +95,29 @@ export const LANGUAGE = [
   {
     identifier: "english",
     placeholder: "What would you like to watch today?",
-    searchButton: "Search"
+    searchButton: "Search",
   },
   {
     identifier: "marathi",
     placeholder: "तुम्हाला आज काय बघायला आवडेल?",
-    searchButton: "शोधा"
+    searchButton: "शोधा",
   },
   {
     identifier: "hindi",
     placeholder: "आज आप क्या देखना चाहेंगे?",
-    searchButton: "खोज"
+    searchButton: "खोज",
   },
   {
     identifier: "tamil",
     placeholder: "இன்று நீங்கள் எதைப் பார்க்க விரும்புகிறீர்கள்?",
-    searchButton: "தேடு"
+    searchButton: "தேடு",
   },
   {
     identifier: "malayalam",
     placeholder: "ഇന്ന് നിങ്ങൾ എന്താണ് കാണാൻ ആഗ്രഹിക്കുന്നത്?",
-    searchButton: "തിരയുക"
+    searchButton: "തിരയുക",
   },
-]
+];
 
 export const OPTIONS = "Options";
 
@@ -123,3 +126,15 @@ export const CAST = "Show Cast";
 export const CAST_HEADER = "Cast";
 
 export const OUTOFF = "/10";
+
+export const MOVIEGPT = "MovieGPT";
+
+export const SUCCESS_SIGN_IN = "Sign In successful";
+export const SUCCESS_SIGN_OUT = "Sign out successful";
+
+export const ERROR_MSG = "An error happened";
+
+export const SUCCESS_STATUS = "success";
+export const ERROR_STATUS = "error";
+
+export const MOVIE_LISTS = ["Now Playing", "Trending", "Top Rated", "Popular", "Upcoming"];

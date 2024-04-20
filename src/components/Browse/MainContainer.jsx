@@ -12,7 +12,7 @@ const MainContainer = () => {
   return (
     <div className="relative w-full h-full text-white">
       <VideoScreen id={id} />
-      <VideoTitle title={original_title} detail={overview} />
+      <VideoTitle title={original_title} detail={overview} id={id} />
     </div>
   );
 };

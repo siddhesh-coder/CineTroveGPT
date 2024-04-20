@@ -30,7 +30,7 @@ const Details = ({ dialog, handleOpen }) => {
   }, [trailer]);
 
   if (detailsLoading || videoLoading) {
-    return <Spinner />;
+    return <div className="absolute top-1/2"><Spinner /></div>;
   }
 
   if (detailsError || videoError) {

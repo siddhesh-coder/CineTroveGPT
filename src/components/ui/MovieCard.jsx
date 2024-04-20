@@ -9,7 +9,7 @@ const MovieCard = ({ movieImgKey, movieTitle, id }) => {
   return (
     <>
       <div
-        className="m-4 overflow-hidden rounded shadow-lg cursor-pointer max-w-48"
+        className="relative m-4 overflow-hidden rounded shadow-lg cursor-pointer max-w-48"
         onClick={() => handleOpen("xxl", id)}
         variant="gradient"
       >

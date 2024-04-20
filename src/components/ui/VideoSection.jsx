@@ -8,7 +8,7 @@ const VideoSection = ({ title, releaseDate, overview, id, genres, videoID }) => 
   const genre = getGenres(genres);
   return (
     <section className="relative w-full overflow-hidden bg-gray-900 h-2/3 aspect-video">
-      {/* <VideoPlayer VideoKey={videoID} width={"full"} height={"auto"}/> */}
+      <VideoPlayer VideoKey={videoID} width={"full"} height={"auto"}/>
       <div className="absolute z-10 w-full h-48 bg-opacity-90 top-3/4 bg-gradient-to-t from-black to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 flex flex-col items-start gap-1 p-6 md:p-10 lg:p-16">

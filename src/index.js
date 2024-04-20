@@ -11,6 +11,7 @@ import appStore from "./utils/Store/appStore";
 import { ThemeProvider } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
 import { ConfigProvider } from "react-avatar";
+import Explore from "./components/Explore/Explore";
 
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const Browse = lazy(() => import("./components/Browse/Browse"));
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Spinner />}>
             <Browse />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/explore",
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Explore />
           </Suspense>
         ),
       },
