@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./Slices/userInfo";
-import nowPlayingMoviesReducer from "./Slices/nowPlaying";
+import browseMoviesReducer from "./Slices/browseMovies";
 import searchToggleReducer from "./Slices/searchToggle";
 import changeLanguageReducer from "./Slices/langChange";
+import activePageReducer from "./Slices/activePage";
 
 const appStore = configureStore({
     reducer: {
         userInfo: userReducer,
-        movies: nowPlayingMoviesReducer,
+        moviesList: browseMoviesReducer,
         searchGPTToggle: searchToggleReducer,
         changeCurrLanguage: changeLanguageReducer,
+        activePage: activePageReducer
     }
 })
 

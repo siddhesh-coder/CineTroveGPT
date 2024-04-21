@@ -49,7 +49,9 @@ const BrowseHeader = () => {
     <header className="absolute z-50 flex items-center justify-between w-screen px-6 py-4 text-white lg:px-1 bg-gradient-to-b from-black to-custom-gradient">
       <img className="w-36 lg:ml-10 md:w-40 lg:w-44" src={LOGO} alt={LOGO} />
       <div className="items-center justify-center hidden gap-5 mx-11 sm:flex">
-        <Button><Link to={"/explore"}>Explore More</Link></Button>
+        <Link to={"/explore"}>
+          <Button>Explore More</Button>
+        </Link>
         <Button onClick={handleOpenSearch}>{MOVIEGPT}</Button>
         <Button onClick={user !== null ? handleSignOut : undefined}>
           {user !== null ? AUTH_BUTTON[1] : AUTH_BUTTON[0]}
@@ -61,6 +63,11 @@ const BrowseHeader = () => {
             <AlignJustify className="text-white" />
           </MenuHandler>
           <MenuList className="bg-black">
+            <Link to={"/explore"}>
+              <MenuItem className="text-white">
+                Explore More{" "}
+              </MenuItem>
+            </Link>
             <MenuItem onClick={handleOpenSearch} className="text-white">
               {MOVIEGPT}
             </MenuItem>

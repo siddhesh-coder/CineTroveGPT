@@ -5,7 +5,7 @@ import VideoTitle from "./VideoTitle";
 import { Spinner } from "@material-tailwind/react";
 
 const MainContainer = () => {
-  const trailer = useSelector((store) => store.movies?.nowPlayingMovies);
+  const trailer = useSelector((store) => store.moviesList?.nowPlayingMovies);
   if (!trailer) return <Spinner/>;
   const { original_title, overview, id } = trailer[16] || "";
 

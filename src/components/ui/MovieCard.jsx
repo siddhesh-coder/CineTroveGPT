@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { IMG_PATH } from "../../utils/constants";
 import Details from "../Browse/Details";
 
-const MovieCard = ({ movieImgKey, movieTitle, id }) => {
+const MovieCard = ({ movieImgKey, movieTitle, id, styles }) => {
   const [dialog, setDialog] = useState({ value: null, id: null });
   const handleOpen = (value, id) => setDialog({ value: value, id: id });
 
   return (
     <>
       <div
-        className="relative m-4 overflow-hidden rounded shadow-lg cursor-pointer max-w-48"
+        className={styles}
         onClick={() => handleOpen("xxl", id)}
         variant="gradient"
       >

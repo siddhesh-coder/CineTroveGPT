@@ -1,40 +1,21 @@
 import React from "react";
 import MoviesCarousel from "../ui/MoviesCarousel";
-import useFetch from "../../hooks/useFetch";
-import {
-  POPULAR,
-  TRENDING,
-  TOP_RATED,
-  UPCOMING,
-  MOVIE_LISTS,
-} from "../../utils/constants";
 import { useSelector } from "react-redux";
 import { Spinner } from "@material-tailwind/react";
+import { getMoviesDataObject } from "../../utils/helper";
 
 const SecondaryContainer = () => {
-  const { shareData: popular, loading: popularLoading, error: popularError } = useFetch(POPULAR);
-  const { shareData: trending, loading: trendingLoading, error: trendingError } = useFetch(TRENDING);
-  const { shareData: topRated, loading: topRatedLoading, error: topRatedError } = useFetch(TOP_RATED);
-  const { shareData: upComing, loading: upComingLoading, error: upComingError } = useFetch(UPCOMING);
+  const movies = useSelector((store) => store.moviesList);
 
-  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (!movies || popularLoading || trendingLoading || topRatedLoading || upComingLoading) return <Spinner/>;
-
-  if (popularError || trendingError || topRatedError || upComingError) {
-    return <div>Error: Failed to fetch data.</div>;
+  if (!movies || Object.values(movies).some((list) => !list)) {
+    return <Spinner />;
   }
-
-  const movieData = [
-    { title: MOVIE_LISTS[0], moviesList: movies },
-    { title: MOVIE_LISTS[1], moviesList: trending },
-    { title: MOVIE_LISTS[2], moviesList: topRated },
-    { title: MOVIE_LISTS[3], moviesList: popular },
-    { title: MOVIE_LISTS[4], moviesList: upComing },
-  ];
+  
+  const moviesData = getMoviesDataObject(movies);
 
   return (
     <div className="relative z-20 -mt-52">
-      {movieData.map((movie, index) => (
+      {moviesData.map((movie, index) => (
         <MoviesCarousel
           key={index}
           title={movie.title}

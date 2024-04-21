@@ -1,3 +1,5 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+
 export const HOME_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg";
 
@@ -137,4 +139,143 @@ export const ERROR_MSG = "An error happened";
 export const SUCCESS_STATUS = "success";
 export const ERROR_STATUS = "error";
 
-export const MOVIE_LISTS = ["Now Playing", "Trending", "Top Rated", "Popular", "Upcoming"];
+export const MOVIE_LISTS = [
+  "nowPlayingMovies",
+  "popularMovies",
+  "trendingMovies",
+  "topRatedMovies",
+  "upcomingMovies",
+];
+
+const PrevArrow = ({ onClick }) => {
+  return (
+    <button
+      className="absolute left-0 z-10 transform -translate-y-1/2 top-1/2 focus:outline-none"
+      onClick={onClick}
+    >
+      <ChevronLeftIcon className="text-white w-9 h-9" />
+    </button>
+  );
+};
+
+const NextArrow = ({ onClick }) => {
+  return (
+    <button
+      className="absolute right-0 z-10 transform -translate-y-1/2 top-1/2 focus:outline-none"
+      onClick={onClick}
+    >
+      <ChevronRightIcon className="text-white w-9 h-9" />
+    </button>
+  );
+};
+
+export const settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 6,
+  slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+  prevArrow: <PrevArrow />,
+  nextArrow: <NextArrow />,
+};
+
+export const genresList = [
+  {
+    id: 28,
+    name: "Action",
+  },
+  {
+    id: 12,
+    name: "Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 80,
+    name: "Crime",
+  },
+  {
+    id: 99,
+    name: "Documentary",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+  {
+    id: 10751,
+    name: "Family",
+  },
+  {
+    id: 14,
+    name: "Fantasy",
+  },
+  {
+    id: 36,
+    name: "History",
+  },
+  {
+    id: 27,
+    name: "Horror",
+  },
+  {
+    id: 10402,
+    name: "Music",
+  },
+  {
+    id: 9648,
+    name: "Mystery",
+  },
+  {
+    id: 10749,
+    name: "Romance",
+  },
+  {
+    id: 878,
+    name: "Science Fiction",
+  },
+  {
+    id: 10770,
+    name: "TV Movie",
+  },
+  {
+    id: 53,
+    name: "Thriller",
+  },
+  {
+    id: 10752,
+    name: "War",
+  },
+  {
+    id: 37,
+    name: "Western",
+  },
+];
