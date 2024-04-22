@@ -55,7 +55,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
   <ThemeProvider>
     <Provider store={appStore}>
       <ConfigProvider>
@@ -64,6 +64,6 @@ root.render(
     </Provider>
     <Toaster position="top-right" reverseOrder={false} />
   </ThemeProvider>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
 reportWebVitals();

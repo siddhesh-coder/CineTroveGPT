@@ -4,6 +4,8 @@ import browseMoviesReducer from "./Slices/browseMovies";
 import searchToggleReducer from "./Slices/searchToggle";
 import changeLanguageReducer from "./Slices/langChange";
 import activePageReducer from "./Slices/activePage";
+import genresReducer from "./Slices/genres";
+import dialogActiveReducer from "./Slices/dialogActive"; //!this slice need checking
 
 const appStore = configureStore({
     reducer: {
@@ -11,7 +13,9 @@ const appStore = configureStore({
         moviesList: browseMoviesReducer,
         searchGPTToggle: searchToggleReducer,
         changeCurrLanguage: changeLanguageReducer,
-        activePage: activePageReducer
+        activePage: activePageReducer,
+        genreID: genresReducer,
+        dialogCurrValue: dialogActiveReducer, //! this slice need checking
     }
 })
 

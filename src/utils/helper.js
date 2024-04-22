@@ -1,4 +1,3 @@
-import { setActivePage } from "./Store/Slices/activePage";
 import { MOVIE_LISTS } from "./constants";
 
 const truncateText = (details, maxLength) => {
@@ -47,33 +46,12 @@ const getTitle = (word) => {
   }
 };
 
-const next = (activePage, dispatch) => {
-  if (activePage === 5) return;
-
-  dispatch(setActivePage(activePage + 1));
-};
-
-const prev = (activePage, dispatch) => {
-  if (activePage === 1) return;
-
-  dispatch(setActivePage(activePage - 1));
-};
-
-const getItemProps = (index, activePage, dispatch) => ({
-  variant: activePage === index ? "filled" : "text",
-  color: "gray",
-  onClick: () => dispatch(setActivePage(index)),
-});
-
 export {
   giveYearOfRelease,
   getDirecting,
   getGenres,
   getMoviesDataObject,
   getTitle,
-  getItemProps,
-  next,
-  prev,
 };
 
 export default truncateText;

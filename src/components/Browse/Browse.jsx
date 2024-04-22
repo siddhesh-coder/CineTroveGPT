@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import BrowseHeader from "./BrowseHeader";
 import { NOW_PLAYING, POPULAR, TOP_RATED, TRENDING, UPCOMING } from "../../utils/constants";
-import { useDispatch } from "react-redux";
-import { addNowPlayingMovies, addPopularMovies, addTopRatedMovies, addTrendingMovies, addUpComingMovies } from "../../utils/Store/Slices/browseMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import useFetchAll from "../../hooks/useFetchAll";
 import { Spinner } from "@material-tailwind/react";
+import useActions from "../../hooks/useActions";
 
 const Browse = () => {
   const { shareData, loading, error } = useFetchAll([
@@ -16,19 +15,12 @@ const Browse = () => {
     TOP_RATED,
     UPCOMING,
   ]);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(addNowPlayingMovies(shareData[0]));
-    dispatch(addPopularMovies(shareData[1]));
-    dispatch(addTrendingMovies(shareData[2]));
-    dispatch(addTopRatedMovies(shareData[3]));
-    dispatch(addUpComingMovies(shareData[4]));
-  }, [dispatch, shareData]);
+  useActions(shareData);
 
-  if(loading) return <Spinner/>
+  if (loading) return <div className="fixed inset-0 flex items-center justify-center h-screen bg-black opacity-50"><Spinner color="black"/></div>;
   
-  if(error) return <div>Error</div>
+  if (error) return <div>Error</div>;
 
   return (
     <div className="w-screen h-screen overflow-x-hidden bg-black">

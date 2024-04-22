@@ -7,7 +7,8 @@ const MovieCard = ({ movieImgKey, movieTitle, id, styles }) => {
   const handleOpen = (value, id) => setDialog({ value: value, id: id });
 
   return (
-    <>
+    // fix spinner css
+    <div>
       <div
         className={styles}
         onClick={() => handleOpen("xxl", id)}
@@ -18,10 +19,10 @@ const MovieCard = ({ movieImgKey, movieTitle, id, styles }) => {
           src={IMG_PATH + movieImgKey}
           alt={movieTitle}
           loading="lazy"
-        />
+        />    
       </div>
       {dialog.value && <Details dialog={dialog} handleOpen={handleOpen} />}
-    </>
+    </div>
   );
 };
 

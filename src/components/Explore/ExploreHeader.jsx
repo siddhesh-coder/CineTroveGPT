@@ -1,5 +1,5 @@
 import React from "react";
-import { genresList } from "../../utils/constants";
+import { GENRES_HEADER, HOME, genresList } from "../../utils/constants";
 import LOGO from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { Clapperboard } from "lucide-react";
@@ -10,15 +10,10 @@ import {
   MenuItem,
   MenuList,
 } from "@material-tailwind/react";
-import { useDispatch } from "react-redux";
-import { setActivePage } from "../../utils/Store/Slices/activePage";
+import useActions from "../../hooks/useActions";
 
-const ExploreHeader = ({ getGenreID }) => {
-  const dispatch = useDispatch();
-
-  const handleResetActivePage = () => {
-    dispatch(setActivePage(1));
-  };
+const ExploreHeader = () => {
+  const { handleResetActivePage, getGenreID } = useActions();
 
   return (
     <header className="flex items-center justify-between gap-4 p-4 sm:hidden">
@@ -29,7 +24,7 @@ const ExploreHeader = ({ getGenreID }) => {
         <MenuHandler>
           <Button className="flex items-center justify-between gap-2 text-white">
             <Clapperboard className="w-5" />
-            Genres
+            {GENRES_HEADER}
           </Button>
         </MenuHandler>
         <MenuList className="overflow-y-scroll bg-black max-h-96">
@@ -47,7 +42,7 @@ const ExploreHeader = ({ getGenreID }) => {
           ))}
           <hr className="my-3" />
           <Link to={"/browse"}>
-            <MenuItem className="font-semibold text-white">Home</MenuItem>
+            <MenuItem className="font-semibold text-white">{HOME}</MenuItem>
           </Link>
         </MenuList>
       </Menu>

@@ -279,3 +279,21 @@ export const genresList = [
     name: "Western",
   },
 ];
+
+export const HOME = "Home";
+
+export const GENRES_HEADER = "Genres";
+
+export const NO_MOVIES_FOUND = "No movies found";
+
+export const PREV = "Previous";
+
+export const NEXT = "next";
+
+export const PageArray = [1, 2, 3, 4, 5];
+
+export const pageSetting = {
+  disabledStartPage: 1,
+  disabledEndPage: 5,
+  strokeWidthValue: 2
+}

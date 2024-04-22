@@ -15,13 +15,17 @@ const Details = ({ dialog, handleOpen }) => {
   const [videoID, setVideoID] = useState(null);
 
   const { value, id } = dialog;
+  
   const {
     details,
     loading: detailsLoading,
     error: detailsError,
   } = useDetails(id);
 
-  const { trailer, loading: videoLoading, error: videoError } = useVideo(id);
+  const { trailer, 
+    loading: videoLoading, 
+    error: videoError ,
+  } = useVideo(id);
 
   useEffect(() => {
     if (trailer && trailer.key) {
@@ -30,7 +34,7 @@ const Details = ({ dialog, handleOpen }) => {
   }, [trailer]);
 
   if (detailsLoading || videoLoading) {
-    return <div className="absolute top-1/2"><Spinner /></div>;
+    return <div className="w-full h-full"><Spinner className="absolute top-1/2" /></div>;
   }
 
   if (detailsError || videoError) {
